@@ -1,0 +1,14 @@
+Project Scheme
+================
+
+Pages Needed:
+-Home Page
+-About Page
+-Cocktail Info Page
+
+Components Needed:
+-App(main app)
+-Navbar
+-Form
+-Cocktails List
+-Cocktail(Home and Cocktail Info Page)
