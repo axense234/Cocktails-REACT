@@ -1,24 +1,28 @@
-import React, { useEffect, useState } from "react";
+// React
+import React, { useEffect } from "react";
+// Components
 import Cocktail from "./Cocktail";
+// Context
 import { useGlobalContext } from "../context";
 
 const CocktailsList = () => {
-  const { fetchCocktails, cocktails, url, textValue, loading } =
-    useGlobalContext();
+  const { fetchCocktails, cocktails, loading } = useGlobalContext();
 
   useEffect(() => {
-    fetchCocktails(url, textValue);
-  }, []);
+    if (cocktails.length < 1) {
+      fetchCocktails();
+    }
+  }, [cocktails, fetchCocktails]);
 
-  if (loading && cocktails) {
+  if (loading) {
     return (
       <>
-        <section className="loading">
-          <p id="loading-title">Loading</p>
-          <div className="loading-hr-container">
-            <hr className="loading-hr first" />
-            <hr className="loading-hr second" />
-            <hr className="loading-hr third" />
+        <section className='loading'>
+          <p id='loading-title'>Loading</p>
+          <div className='loading-hr-container'>
+            <hr className='loading-hr first' />
+            <hr className='loading-hr second' />
+            <hr className='loading-hr third' />
           </div>
         </section>
       </>
@@ -27,9 +31,9 @@ const CocktailsList = () => {
 
   return (
     <>
-      <h1 id="cocktails-title">Cocktails</h1>
+      <h1 id='cocktails-title'>Cocktails</h1>
       {cocktails ? (
-        <section className="cocktails-list">
+        <section className='cocktails-list'>
           {cocktails.map((cocktail, index) => {
             let ingredientsKeys = Object.keys(cocktail).filter((key) => {
               return key.startsWith("strIngredient");
@@ -44,7 +48,6 @@ const CocktailsList = () => {
               return ingredient !== null;
             });
 
-            console.log(cocktail, "COK");
             return (
               <Cocktail
                 {...cocktail}
@@ -55,7 +58,7 @@ const CocktailsList = () => {
           })}
         </section>
       ) : (
-        <p id="undefined-msg">No Cocktails Matched Your Search Criteria</p>
+        <p id='undefined-msg'>No Cocktails Matched Your Search Criteria</p>
       )}
     </>
   );

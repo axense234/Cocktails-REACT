@@ -1,15 +1,19 @@
-import React, { useState, useRef, useContext, useEffect } from "react";
-const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
+// React
+import { useState, useContext, createContext } from "react";
+// Cocktail DB URL
+const baseUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
-const AppContext = React.createContext(null);
+const AppContext = createContext(null);
 
 const AppProvider = ({ children }) => {
   const [cocktails, setCocktails] = useState([]);
   const [textValue, setTextValue] = useState("");
-  const [alert, setAlert] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const fetchCocktails = async (url, params) => {
+  const fetchCocktails = async (url = baseUrl, params = "") => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
     try {
       fetch(`${url}${params}`)
         .then((response) => response.json())
@@ -20,41 +24,20 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!textValue) {
-      setAlert(true);
-    }
-  };
-
-  const handleFilter = (value, e) => {
+  const handleFilter = (value) => {
     setTextValue(value);
-    fetchCocktails(url, textValue);
+    fetchCocktails(baseUrl, value);
   };
-
-  useEffect(() => {
-    if (cocktails) {
-      let timeout = setTimeout(() => {
-        setLoading(false);
-      }, 300);
-      return () => {
-        clearTimeout(timeout);
-      };
-    }
-  }, [cocktails]);
 
   return (
     <AppContext.Provider
       value={{
         fetchCocktails,
         cocktails,
-        alert,
-        setAlert,
         setTextValue,
         textValue,
-        handleSubmit,
         handleFilter,
-        url,
+        baseUrl,
         loading,
       }}
     >

@@ -1,4 +1,4 @@
-import React from "react";
+// React Router
 import { Link } from "react-router-dom";
 
 const Cocktail = ({
@@ -12,14 +12,14 @@ const Cocktail = ({
   ingredients,
 }) => {
   return (
-    <article className="cocktail-container">
-      <div className="img-container">
+    <article className='cocktail-container'>
+      <div className='img-container'>
         <img src={img} alt={cocktailName} />
       </div>
-      <div className="info-container">
-        <p id="cocktail-name">{cocktailName}</p>
-        <p id="glass-type">{glassType}</p>
-        <p id="alcoholic">{alcoholic}</p>
+      <div className='info-container'>
+        <p id='cocktail-name'>{cocktailName}</p>
+        <p id='glass-type'>{glassType}</p>
+        <p id='alcoholic'>{alcoholic}</p>
         <Link
           to={`cocktail/${id}`}
           state={{
@@ -32,7 +32,7 @@ const Cocktail = ({
             img,
           }}
         >
-          <button id="details-btn">DETAILS</button>
+          <button id='details-btn'>DETAILS</button>
         </Link>
       </div>
     </article>

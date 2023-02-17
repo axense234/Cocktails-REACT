@@ -1,16 +1,17 @@
-import React from "react";
+// React Router
 import { Link } from "react-router-dom";
+// Pages
 import pages from "../pages";
 
 const Navbar = () => {
   return (
-    <nav className="nav">
+    <nav className='nav'>
       <h1>Axense's Team</h1>
-      <div className="pages-container">
+      <div className='pages-container'>
         {pages.map((page) => {
           const { id, title, url } = page;
           return (
-            <Link to={url} key={id} className="page-link">
+            <Link to={url} key={id} className='page-link'>
               {title}
             </Link>
           );
