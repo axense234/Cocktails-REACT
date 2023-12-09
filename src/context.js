@@ -11,16 +11,26 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const fetchCocktails = async (url = baseUrl, params = "") => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
+    setLoading(true);
     try {
       fetch(`${url}${params}`)
         .then((response) => response.json())
-        .then((data) => setCocktails(data.drinks))
-        .then(setLoading(true));
+        .then((data) => {
+          if (data.drinks?.length >= 1) {
+            setCocktails(data.drinks);
+            console.log(data.drinks);
+          } else {
+            setCocktails([]);
+          }
+        })
+        .then(() => {
+          setTimeout(() => {
+            setLoading(false);
+          }, 500);
+        });
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   };
 

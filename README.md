@@ -11,6 +11,7 @@ A React Project that focuses on React Router,folder structure,fetching in react,
 ### Dependencies
 
 - Check package.json for details.
+- Docker if you want to test locally using containers
 
 ### Installing
 
@@ -20,9 +21,17 @@ git clone https://github.com/axense234/Cocktails-REACT.git
 
 ### Executing program
 
+- **_Test through NPM_**
+
 ```
 npm install
 npm start
+```
+
+- **_Test through Nodemon and Docker_**
+
+```
+npm run test-docker
 ```
 
 ## **Authors**
@@ -31,6 +40,8 @@ npm start
 
 ## **Version History**
 
+- 0.3
+  - Analyzed code to gather to-do tasks, now you can test locally with docker.
 - 0.2
   - Cleaned up unnecessary React code,improved folder structure.
   - See [commit change](https://github.com/axense234/Cocktails-REACT/commits/master) or See [release history](https://github.com/axense234/Cocktails-REACT/releases)

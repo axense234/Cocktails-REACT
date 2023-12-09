@@ -6,7 +6,7 @@ const Form = () => {
 
   return (
     <form id='form-container'>
-      <label htmlFor='search-bar'>Search Your Favorite Cocktail</label>
+      <label htmlFor='search-bar'>Search Your Favorite Cocktailz</label>
       <input
         type='text'
         id='search-bar'

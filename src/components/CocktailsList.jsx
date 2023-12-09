@@ -9,10 +9,8 @@ const CocktailsList = () => {
   const { fetchCocktails, cocktails, loading } = useGlobalContext();
 
   useEffect(() => {
-    if (cocktails.length < 1) {
       fetchCocktails();
-    }
-  }, [cocktails, fetchCocktails]);
+  }, []);
 
   if (loading) {
     return (
@@ -32,7 +30,7 @@ const CocktailsList = () => {
   return (
     <>
       <h1 id='cocktails-title'>Cocktails</h1>
-      {cocktails ? (
+      {cocktails?.length >= 1 ? (
         <section className='cocktails-list'>
           {cocktails.map((cocktail, index) => {
             let ingredientsKeys = Object.keys(cocktail).filter((key) => {

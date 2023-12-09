@@ -185,7 +185,6 @@ body {
 
 #details-btn {
   background-color: #d92bd9;
-  color: #ee59ff;
   border: none;
   transition: transform 0.5s, color 0.5s;
   border-radius: 0.5rem;
