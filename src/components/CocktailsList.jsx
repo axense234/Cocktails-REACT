@@ -32,7 +32,7 @@ const CocktailsList = () => {
       <h1 id='cocktails-title'>Cocktails</h1>
       {cocktails?.length >= 1 ? (
         <section className='cocktails-list'>
-          {cocktails.map((cocktail, index) => {
+          {cocktails?.map((cocktail, index) => {
             let ingredientsKeys = Object.keys(cocktail).filter((key) => {
               return key.startsWith("strIngredient");
             });

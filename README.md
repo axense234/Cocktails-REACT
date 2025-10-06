@@ -1,10 +1,10 @@
 # **Cocktails**
 
-A React Project that focuses on React Router,folder structure,fetching in react,loading,form input.
+A React Project that focuses on React Router, folder structure, fetching in react, loading, form input.
 
 ## **Description**
 
-A React Project that focuses on React Router,folder structure,fetching in react,loading,form input.The project is themed around a cocktails searching input where your cocktails pool gets updated every time the search input changes.Contains 3 pages:Home Page,About Page,and Individual Cocktail Page.
+A React Project that focuses on React Router, folder structure, fetching in react, loading, form input. The project is themed around a cocktails searching input where your cocktails pool gets updated every time the search input changes. Contains 3 pages: Home Page, About Page, and Individual Cocktail Page.
 
 ## **Getting Started**
 

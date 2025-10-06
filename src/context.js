@@ -10,7 +10,7 @@ const AppProvider = ({ children }) => {
   const [textValue, setTextValue] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const fetchCocktails = async (url = baseUrl, params = "") => {
+  const fetchCocktails = async (url = baseUrl, params = "a") => {
     setLoading(true);
     try {
       fetch(`${url}${params}`)
